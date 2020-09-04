@@ -1,11 +1,14 @@
 import React from 'react'
-import * as axios from 'axios'
 import { InputGroup, Button, FormControl } from 'react-bootstrap'
 
 const SearchUser = () => {
     const [user, setUser] = React.useState('')
-    const getUserData = async () => {
-        const response = axios.get(``)
+    const [ava, setAva] = React.useState('')
+    const getUserData = async (event) => {
+        let githubResponse = await fetch(`https://api.github.com/users/${user}`)
+        let githubUser = await githubResponse.json()
+        setAva(githubUser.avatar_url)
+        console.log(githubUser)
     }
     return(
         <InputGroup className="mb-3">
@@ -19,6 +22,7 @@ const SearchUser = () => {
                 <Button onClick={getUserData} variant="outline-secondary">Button</Button>
             </InputGroup.Append>
             {user}
+            <img src={ava} alt=""/>
         </InputGroup>
     )
 }
