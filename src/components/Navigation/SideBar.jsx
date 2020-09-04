@@ -1,17 +1,22 @@
 import React from 'react';
-import { Nav, Button} from 'react-bootstrap';
+import { Nav } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import './SideBar.css'
 const SideBar = () => {
    return(
-          <Nav defaultActiveKey="/home" className="flex-column">
-            <LinkContainer to="/home">
-                <Nav.Link>Info</Nav.Link>
+          <Nav defaultActiveKey="/dashboard" className="flex-column">
+            <LinkContainer to="/dashboard">
+                <Nav.Link eventKey="dashboard">Dashboard</Nav.Link>
             </LinkContainer>
-            <Nav.Link eventKey="link-1"> Repositories</Nav.Link>
-            <Nav.Link eventKey="link-2"> About me</Nav.Link>
-            <Nav.Link eventKey="link-3"> Statistick</Nav.Link>
-            <Nav.Link eventKey="link-4">  404</Nav.Link>
+            <LinkContainer to="/profile">
+                <Nav.Link eventKey="profile">Profile</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/repositories">
+                <Nav.Link eventKey="repositories">Repositories</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/statisticks">
+                <Nav.Link eventKey="statisticks">Statisticks</Nav.Link>
+            </LinkContainer>
            </Nav>
    )
 }

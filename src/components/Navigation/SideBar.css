@@ -1,12 +1,14 @@
 .nav {
     max-width: 250px;
     height: 100vh;
-    padding: 10px 40px;
 }
 
 .nav-link:not(:last-child) {
     border-bottom: 1px solid solid rgba(0,0,0,.125);
+}
 
+.nav-link:hover {
+    background-color: #d6dade;
 }
 
 .active {

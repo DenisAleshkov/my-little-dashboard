@@ -1,12 +1,15 @@
 import React from 'react';
 import SideBar from './components/Navigation/SideBar';
-import Home from './components/Home/Home';
-import Login from './components/Login/Login';
+import NavBar from './components/Navigation/NavBar';
+import Dashboard from './components/Dashboard/Dashboard';
+import Profile from './components/Profile/Profile';
+import Repositories from './components/Repositories/Repositories';
+import Statisticks from './components/Statisticks/Statisticks';
+import { Container, Row, Col } from 'react-bootstrap'
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import './App.css';
 
@@ -16,13 +19,29 @@ function App() {
   return (
     <div className="App">
     <Router>
-        <SideBar />
+     
+      <Container fluid>
+      <Row>
+        <Col sm={2}><SideBar /></Col>
+        <Col sm={10}><NavBar /></Col>
+      </Row>
+      <Row>
+
+      </Row>
+      </Container>
+     
            <Switch>
-             <Route path="/home">
-               <Home />
+             <Route path="/dashboard">
+               <Dashboard />
              </Route>
-              <Route path="/login">
-               <Login />
+              <Route path="/statisticks">
+               <Statisticks />
+             </Route>
+             <Route path="/profile">
+               <Profile />
+             </Route>
+             <Route path="/repositories">
+               <Repositories />
              </Route>
            </Switch>
        </Router>
