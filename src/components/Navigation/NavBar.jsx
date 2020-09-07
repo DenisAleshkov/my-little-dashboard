@@ -8,8 +8,8 @@ import './NavBar.css';
 
 const NavBar = () => {
 
-    const { avatar, loading } = React.useContext(GithubContext);
-    
+    const { avatar, loading, login } = React.useContext(GithubContext);
+
    return(
    <Navbar>
      
@@ -18,6 +18,7 @@ const NavBar = () => {
       </LinkContainer>
       <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
       <Navbar.Collapse className="justify-content-end">
+        <span>{login}</span>
           {
             loading ? <Loading /> : <Image className="avatar" src={ avatar } roundedCircle />
           }

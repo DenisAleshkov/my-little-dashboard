@@ -3,12 +3,16 @@ import React from 'react'
 const GithubContext = React.createContext() 
 
 const GithubProvider = ({ children }) => {
-    const [githubUser, setGithubUser] = React.useState('')
-    const [repos, setRepos] = React.useState('')
-    const [followers, setFollowers] = React.useState('')
-    const [avatar, setAvatar] = React.useState('')
-    const [loading, setLoading] = React.useState(false)
-    const [error, setError] = React.useState(false)
+
+    const [githubUser, setGithubUser] = React.useState('');
+    const [repos, setRepos] = React.useState('');
+    const [followers, setFollowers] = React.useState('');
+    const [following, setFollowing] = React.useState('');
+    const [avatar, setAvatar] = React.useState('');
+    const [loading, setLoading] = React.useState(false);
+    const [error, setError] = React.useState(false);
+    const [login, setLogin] = React.useState('');
+
 
     const toggleError = () => setError(!error);
 
@@ -18,12 +22,11 @@ const GithubProvider = ({ children }) => {
         const response = await fetch(`https://api.github.com/users/${user}`)
         .catch( (err) => console.log('err',err))
         const reponseJSON = await response.json()
-        if(reponseJSON.message === 'Not Found') {
-            console.log('not found',reponseJSON)
-            setError(true)
-            
-        } else {
+        if(reponseJSON){
             setAvatar(reponseJSON.avatar_url)
+            setFollowers(reponseJSON.followers)
+            setFollowing(reponseJSON.following)
+            setLogin(reponseJSON.login)
             console.log('found',reponseJSON)
         }
         setLoading(false)
@@ -40,7 +43,11 @@ const GithubProvider = ({ children }) => {
              loading,
              avatar,
              toggleError,
-             error
+             error,
+             followers,
+             following,
+             login,
+             data
         }}>
              {children}
          </GithubContext.Provider>   
