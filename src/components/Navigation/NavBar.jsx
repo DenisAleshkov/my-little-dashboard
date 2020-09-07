@@ -9,16 +9,17 @@ import './NavBar.css';
 const NavBar = () => {
 
     const { avatar, loading } = React.useContext(GithubContext);
-    console.log(loading)
+    
    return(
    <Navbar>
+     
        <LinkContainer to="/github">
          <Navbar.Brand>github</Navbar.Brand>
       </LinkContainer>
       <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
       <Navbar.Collapse className="justify-content-end">
           {
-            loading ? <Loading /> : <Image className="avatar" src={ avatar } roundedCircle fluid/>
+            loading ? <Loading /> : <Image className="avatar" src={ avatar } roundedCircle />
           }
       </Navbar.Collapse>
     </Navbar>

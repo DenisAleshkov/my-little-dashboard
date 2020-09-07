@@ -19,22 +19,12 @@ function App() {
   return (
     <div className="App">
     <Router>
-     
       <Container fluid>
       <Row>
         <Col sm={2} md={2} lg={2}><SideBar /></Col>
         <Col sm={10} md={10} lg={10}>
           <NavBar />
-          <Dashboard />
-        </Col>
-       
-      </Row>
-      <Row>
-
-      </Row>
-      </Container>
-     
-           <Switch>
+          <Switch>
              <Route path="/dashboard">
                <Dashboard />
              </Route>
@@ -48,6 +38,12 @@ function App() {
                <Repositories />
              </Route>
            </Switch>
+        </Col>
+      </Row>
+      <Row>
+      </Row>
+      </Container>
+           
        </Router>
    </div>
   )
