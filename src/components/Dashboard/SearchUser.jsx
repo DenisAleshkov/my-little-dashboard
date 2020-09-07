@@ -23,11 +23,6 @@ const SearchUser = () => {
             <InputGroup.Append>
                 <Button onClick={getUserData} variant="outline-secondary">Button</Button>
             </InputGroup.Append>
-            {
-                loading && <Loading />
-            }
-            <div><img src={avatar} alt=""/></div>
-            
         </InputGroup>
     )
 }

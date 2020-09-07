@@ -15,13 +15,23 @@ const GithubProvider = ({ children }) => {
         .catch( (err) => console.log(err))
         const reponseJSON = await response.json()
         if(reponseJSON) {
+            setAvatar(reponseJSON.avatar_url)
             console.log(reponseJSON)
         }
         setLoading(false)
     }
 
+    React.useEffect(()=>{
+        searchGithubUser('DenisAleshkov');
+    }, [])
+
     return (
-         <GithubContext.Provider value={ { githubUser, searchGithubUser, loading } }>
+         <GithubContext.Provider value={{ 
+             githubUser, 
+             searchGithubUser, 
+             loading,
+             avatar
+        }}>
              {children}
          </GithubContext.Provider>   
     )

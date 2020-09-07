@@ -1,8 +1,15 @@
 import React from 'react';
-import { Nav } from 'react-bootstrap';
 import { Navbar } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
+import { GithubContext } from './../../context/context';
+import { Image } from 'react-bootstrap';
+import Loading from './../../utils/Loading';
+import './NavBar.css';
+
 const NavBar = () => {
+
+    const { avatar, loading } = React.useContext(GithubContext);
+    console.log(loading)
    return(
    <Navbar>
        <LinkContainer to="/github">
@@ -10,12 +17,9 @@ const NavBar = () => {
       </LinkContainer>
       <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
       <Navbar.Collapse className="justify-content-end">
-            <LinkContainer to="/github">
-                <Nav.Link eventKey="github">Link to github</Nav.Link>
-            </LinkContainer>
-            <LinkContainer to="/avatar">
-                <Nav.Link eventKey="avatar">avatar</Nav.Link>
-            </LinkContainer>
+          {
+            loading ? <Loading /> : <Image className="avatar" src={ avatar } roundedCircle fluid/>
+          }
       </Navbar.Collapse>
     </Navbar>
    )
