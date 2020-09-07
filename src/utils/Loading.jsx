@@ -1,11 +1,11 @@
 import React from 'react'
 import { Spinner } from 'react-bootstrap'
 
-const Loading = () => {
+export  const Loading = () => {
     return(
-        <>
+        <div>
              <Spinner animation="border" variant="primary" />
-        </>
+        </div>
     )
 }
 

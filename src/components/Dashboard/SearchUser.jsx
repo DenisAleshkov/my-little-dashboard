@@ -1,15 +1,15 @@
 import React from 'react'
 import { GithubContext }  from './../../context/context'
 import { InputGroup, Button, FormControl } from 'react-bootstrap'
-// import  { Loading } from './../../utils/Loading'
+import  Loading  from './../../utils/Loading'
 
 const SearchUser = () => {
 
-    const { searchGithubUser } = React.useContext(GithubContext)
+    const { searchGithubUser, loading } = React.useContext(GithubContext)
 
     const [user, setUser] = React.useState('')
-    const [ava, setAva] = React.useState('')
-    const getUserData = (event) => {
+    const [avatar, setAva] = React.useState('')
+    const getUserData = () => {
         searchGithubUser(user)
     }
     return(
@@ -23,8 +23,10 @@ const SearchUser = () => {
             <InputGroup.Append>
                 <Button onClick={getUserData} variant="outline-secondary">Button</Button>
             </InputGroup.Append>
-            {user}
-            <div><img src={ava} alt=""/></div>
+            {
+                loading && <Loading />
+            }
+            <div><img src={avatar} alt=""/></div>
             
         </InputGroup>
     )
