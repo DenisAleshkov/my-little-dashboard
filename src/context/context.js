@@ -5,7 +5,7 @@ const GithubContext = React.createContext()
 const GithubProvider = ({ children }) => {
 
     const [githubUser, setGithubUser] = React.useState('');
-    const [repos, setRepos] = React.useState('');
+    const [repos, setRepos] = React.useState({});
     const [followers, setFollowers] = React.useState('');
     const [following, setFollowing] = React.useState('');
     const [avatar, setAvatar] = React.useState('');
@@ -27,13 +27,23 @@ const GithubProvider = ({ children }) => {
             setFollowers(reponseJSON.followers)
             setFollowing(reponseJSON.following)
             setLogin(reponseJSON.login)
-            console.log('found',reponseJSON)
+        }
+        setLoading(false)
+    }
+
+    const loadReposInfo = async(user) =>{
+        setLoading(true)
+        const response = await fetch(`https://api.github.com/users/${user}/repos`)
+        .catch( (err) => console.log('err',err))
+        const reponseJSON = await response.json()
+        if(reponseJSON){
+           setRepos(reponseJSON)
         }
         setLoading(false)
     }
 
     React.useEffect(()=>{
-        searchGithubUser('DenisAleshkov');
+        searchGithubUser('DenisAleshkov')
     }, [])
 
     return (
@@ -47,7 +57,8 @@ const GithubProvider = ({ children }) => {
              followers,
              following,
              login,
-             data
+             loadReposInfo,
+             repos
         }}>
              {children}
          </GithubContext.Provider>   

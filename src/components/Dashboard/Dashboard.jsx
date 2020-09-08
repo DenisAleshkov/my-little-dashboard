@@ -1,5 +1,7 @@
 import React from 'react';
 import SearchUser from './SearchUser';
+import Followers from './Followers';
+import Following from './Following';
 import { GithubContext } from './../../context/context';
 
 const Dashboard = () => {
@@ -9,8 +11,8 @@ const Dashboard = () => {
     return(
        <div className="dashboard">
         <SearchUser />
-        <span>following: {following}</span>
-        <span>followers: {followers}</span>
+        <Followers followers = {followers}/>
+        <Following following = {following}/>
        </div>
     )
 }
