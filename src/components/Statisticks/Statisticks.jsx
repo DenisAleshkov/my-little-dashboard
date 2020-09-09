@@ -28,7 +28,7 @@ const Statistick = () => {
     
  return(
      <div>
-         stat
+        <PieComponent language = {languages} />
      </div>
  )
 }
