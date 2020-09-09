@@ -8,7 +8,6 @@ const SearchUser = () => {
     const { searchGithubUser, loading } = React.useContext(GithubContext)
 
     const [user, setUser] = React.useState('')
-    const [avatar, setAva] = React.useState('')
     const getUserData = () => {
         searchGithubUser(user)
     }

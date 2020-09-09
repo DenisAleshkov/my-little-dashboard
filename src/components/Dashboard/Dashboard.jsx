@@ -3,6 +3,7 @@ import SearchUser from './SearchUser';
 import Followers from './Followers';
 import Following from './Following';
 import { GithubContext } from './../../context/context';
+import './Dashboard.css'
 
 const Dashboard = () => {
 
@@ -11,8 +12,10 @@ const Dashboard = () => {
     return(
        <div className="dashboard">
         <SearchUser />
-        <Followers followers = {followers}/>
-        <Following following = {following}/>
+        <div className="dashboard-follow">
+            <Followers followers = {followers}/>
+            <Following following = {following}/>
+        </div>
        </div>
     )
 }

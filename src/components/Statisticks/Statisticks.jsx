@@ -4,12 +4,27 @@ import PieComponent from './../Chart/Pie';
 
 const Statistick = () => {
 
-    const { loadReposInfo, repos } = React.useContext(GithubContext)
+    const { repos  } = React.useContext(GithubContext)
+
    
-    React.useEffect(()=>{
-        loadReposInfo('DenisAleshkov')       
-        console.log(repos)
-    }, [])
+    const languages = repos.reduce((previousValue, currentValue, index, array) => {
+        const { language } = currentValue
+        if(!language) return previousValue;
+        if(!previousValue[language]) {
+            previousValue[language] = { label:language, value: 1 }
+        } else {
+            previousValue[language] = {
+                ...previousValue[language],
+                value: previousValue[language].value + 1 
+            }
+        }
+     
+        return previousValue
+      }, {});
+
+        console.log(languages)
+   
+   
     
  return(
      <div>

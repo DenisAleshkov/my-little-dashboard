@@ -4,8 +4,7 @@ const GithubContext = React.createContext()
 
 const GithubProvider = ({ children }) => {
 
-    const [githubUser, setGithubUser] = React.useState('');
-    const [repos, setRepos] = React.useState({});
+    const [repos, setRepos] = React.useState([]);
     const [followers, setFollowers] = React.useState('');
     const [following, setFollowing] = React.useState('');
     const [avatar, setAvatar] = React.useState('');
@@ -13,34 +12,33 @@ const GithubProvider = ({ children }) => {
     const [error, setError] = React.useState(false);
     const [login, setLogin] = React.useState('');
 
-
-    const toggleError = () => setError(!error);
-
+    
 
     const searchGithubUser =  async (user) => {
+        console.log('search')
         setLoading(true)
-        const response = await fetch(`https://api.github.com/users/${user}`)
+        const responseUser = await fetch(`https://api.github.com/users/${user}`)
         .catch( (err) => console.log('err',err))
-        const reponseJSON = await response.json()
-        if(reponseJSON){
-            setAvatar(reponseJSON.avatar_url)
-            setFollowers(reponseJSON.followers)
-            setFollowing(reponseJSON.following)
-            setLogin(reponseJSON.login)
+        const dataUser = await responseUser.json()
+        if(dataUser){
+
+            setAvatar(dataUser.avatar_url)
+            setFollowers(dataUser.followers)
+            setFollowing(dataUser.following)
+            setLogin(dataUser.login)
+            
+            const responseRepos = await fetch(`https://api.github.com/users/${user}/repos`)
+            const dataRepos = await responseRepos.json()
+           
+            setRepos(dataRepos)
+
+           
+
+
         }
         setLoading(false)
     }
 
-    const loadReposInfo = async(user) =>{
-        setLoading(true)
-        const response = await fetch(`https://api.github.com/users/${user}/repos`)
-        .catch( (err) => console.log('err',err))
-        const reponseJSON = await response.json()
-        if(reponseJSON){
-           setRepos(reponseJSON)
-        }
-        setLoading(false)
-    }
 
     React.useEffect(()=>{
         searchGithubUser('DenisAleshkov')
@@ -48,16 +46,13 @@ const GithubProvider = ({ children }) => {
 
     return (
          <GithubContext.Provider value={{ 
-             githubUser, 
              searchGithubUser, 
              loading,
              avatar,
-             toggleError,
              error,
              followers,
              following,
              login,
-             loadReposInfo,
              repos
         }}>
              {children}
