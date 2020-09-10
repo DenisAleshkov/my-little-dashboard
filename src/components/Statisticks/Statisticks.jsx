@@ -22,13 +22,13 @@ const Statistick = () => {
         return previousValue
       }, {});
 
-        console.log(languages)
+      
    
    
     
  return(
      <div>
-        <PieComponent language = {languages} />
+        <PieComponent languages = {languages} />
      </div>
  )
 }

@@ -1,19 +1,25 @@
 import React from 'react'
 import { Pie } from 'react-chartjs-2'
-const PieComponent = props => {
-  
+const PieComponent = ({ languages }) => {
+ 
+  const labels = Object.keys(languages)
+  const valueLanguage = Object.values(languages)
+    .map( (item) => { return item.value  } )
+    
+  console.log('languages',valueLanguage)
+ 
+ 
 const data = {
-    labels: [
-      'Red',
-      'Green',
-      'Yellow'
-    ],
+    labels: labels,
     datasets: [{
-      data: [300, 50, 100],
+      data: valueLanguage,
       backgroundColor: [
       '#FF6384',
       '#36A2EB',
-      '#FFCE56'
+      '#FFCE56',
+      '#FF6384',
+      '#36A2EB',
+      '#FFCE56',
       ],
       hoverBackgroundColor: [
       '#FF6384',
@@ -26,7 +32,9 @@ const data = {
  
     return(
         <div className="pie">
-           <Pie data = { data } />
+           <Pie width={100}
+                height={50} 
+                data = { data } />
         </div>
     )
 }
