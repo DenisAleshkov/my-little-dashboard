@@ -1,6 +1,6 @@
 import React from 'react'
 import { GithubContext }  from './../../context/context'
-import { InputGroup, Button, FormControl } from 'react-bootstrap'
+import { InputGroup,Spinner, Button, FormControl } from 'react-bootstrap'
 import  Loading  from './../../utils/Loading'
 
 const SearchUser = () => {
@@ -19,6 +19,7 @@ const SearchUser = () => {
             aria-describedby="basic-addon2"
             onChange={ e => setUser(e.target.value) }
             />
+           
             <InputGroup.Append>
                 <Button onClick={getUserData} variant="outline-secondary">Button</Button>
             </InputGroup.Append>

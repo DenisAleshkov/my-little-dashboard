@@ -27,13 +27,10 @@ const GithubProvider = ({ children }) => {
             setFollowing(dataUser.following)
             setLogin(dataUser.login)
             
-            const responseRepos = await fetch(`https://api.github.com/users/${user}/repos`)
+            const responseRepos = await fetch(`https://api.github.com/users/${user}/repos?per_page=100`)
             const dataRepos = await responseRepos.json()
            
             setRepos(dataRepos)
-
-           
-
 
         }
         setLoading(false)
@@ -41,7 +38,7 @@ const GithubProvider = ({ children }) => {
 
 
     React.useEffect(()=>{
-        searchGithubUser('DenisAleshkov')
+        searchGithubUser('bradtraversy')
     }, [])
 
     return (

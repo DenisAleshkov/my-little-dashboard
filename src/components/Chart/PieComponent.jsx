@@ -4,17 +4,20 @@ import './Chart.css'
 const PieComponent = ({ languages }) => {
  
   const labels = Object.keys(languages)
+
   const valueLanguage = Object.values(languages)
     .map( (item) => { return item.value } )
-    
-  console.log('languages',valueLanguage)
  
  
 const data = {
   
     labels: labels,
-   
+    
     datasets: [{
+      label: 'Count stars',
+      title: {
+        text:'Popular repositories'
+      },
       data: valueLanguage,
       backgroundColor: [
         '#FF6384',
@@ -42,14 +45,14 @@ const data = {
     return(
         <div className="pie" style={
           {
-            height: '500px', 
-            width: '500px', 
+            height: '450px', 
+            width: '450px', 
            
           }}>
            <Pie 
                 data = { data }
-                width = {450}
-                height = {450}
+                width = {400}
+                height = {400}
                 options = {options }
                 />
               
