@@ -12,10 +12,6 @@ const NavBar = () => {
 
    return(
    <Navbar>
-     
-       <LinkContainer to="/github">
-         <Navbar.Brand>github</Navbar.Brand>
-      </LinkContainer>
       <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
       <Navbar.Collapse className="justify-content-end">
         <span>{login}</span>

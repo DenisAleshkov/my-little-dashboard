@@ -6,11 +6,9 @@ const BarComponent = ({ stars }) => {
 
     const stargazersCount = Object.values(stars)
     .map( (item) => { return item.stars } )
-   
+
     const data = {
-  
     labels: name,
-   
     datasets: [{
       data: stargazersCount,
       backgroundColor: [
@@ -27,6 +25,10 @@ const BarComponent = ({ stars }) => {
       ]
     }],
   };
+
+  const options = {
+    
+  }
     return (
         <div className="bar" style={{
             'height': '450px',

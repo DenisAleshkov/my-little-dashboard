@@ -11,6 +11,7 @@ const GithubProvider = ({ children }) => {
     const [loading, setLoading] = React.useState(false);
     const [error, setError] = React.useState(false);
     const [login, setLogin] = React.useState('');
+    const [activity, setActivity] = React.useState([]);
 
     
 
@@ -31,14 +32,22 @@ const GithubProvider = ({ children }) => {
             const dataRepos = await responseRepos.json()
            
             setRepos(dataRepos)
+            // console.log('Repos:',dataRepos)
 
+            const responseActivity = await fetch(`https://api.github.com/users/${user}/received_events`)
+            const dataActivity = await responseActivity.json()
+
+            setActivity(dataActivity)
+
+            // console.log('Activity:',dataActivity)
         }
         setLoading(false)
     }
 
 
     React.useEffect(()=>{
-        searchGithubUser('bradtraversy')
+        // searchGithubUser('bradtraversy')
+        searchGithubUser('DenisAleshkov')
     }, [])
 
     return (
@@ -50,7 +59,8 @@ const GithubProvider = ({ children }) => {
              followers,
              following,
              login,
-             repos
+             repos,
+             activity
         }}>
              {children}
          </GithubContext.Provider>   
