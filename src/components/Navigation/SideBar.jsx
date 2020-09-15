@@ -5,6 +5,9 @@ import './SideBar.css'
 const SideBar = () => {
    return(
           <Nav defaultActiveKey="/dashboard" className="flex-column">
+              <h1>
+                  github
+              </h1>
             <LinkContainer to="/dashboard">
                 <Nav.Link eventKey="dashboard">Dashboard</Nav.Link>
             </LinkContainer>

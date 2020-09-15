@@ -1,8 +1,9 @@
-import React from 'react';
-import SearchUser from './SearchUser';
-import Followers from './Followers';
-import Following from './Following';
-import { GithubContext } from './../../context/context';
+import React from 'react'
+import SearchUser from './SearchUser'
+import Followers from './Followers'
+import Following from './Following'
+import BreadcrumbComponent from './BreadcrumbComponent.jsx'
+import { GithubContext } from './../../context/context'
 import './Dashboard.css'
 
 const Dashboard = () => {
@@ -11,7 +12,11 @@ const Dashboard = () => {
 
     return(
        <div className="dashboard">
-        <SearchUser />
+           <div className="search-box">
+                <BreadcrumbComponent />
+                <SearchUser />
+           </div>
+       
         <div className="dashboard-follow">
             <Followers followers = {followers}/>
             <Following following = {following}/>

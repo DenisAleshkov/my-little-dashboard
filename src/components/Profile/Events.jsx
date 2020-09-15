@@ -1,37 +1,7 @@
 import React from 'react'
 import { Toast } from 'react-bootstrap'
 const Events = ({ payload, type, date, repo }) => {
-    console.log('payload', payload)
-    function reducer (state, action) {
-        switch(action.type) {
-           case 'CreateEvent':
-            return {
-                ...state,
-
-            }
-            case 'PullRequestEvent':
-                return {
-                    ...state,
-                    info: state.pull_request
-                }
-            case 'WatchEvent':
-                return {
-                    ...state,
-                }
-            default: 
-                return state
-        }
-    }   
-
-    const [info, dispatch] = React.useReducer(reducer, payload)
-   
-    React.useEffect(()=>{ 
-        dispatch({type:'PullRequestEvent'})
-        // console.log('info',state.info)
-     },[])
-     dispatch({type:'PullRequestEvent'})
-    console.log('info',info)
-
+//    console.log('payload', payload)
     return (
         <Toast>
             <div className="toast-header">

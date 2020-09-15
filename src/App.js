@@ -21,8 +21,10 @@ function App() {
     <Router>
       <Container fluid>
       <Row>
-        <Col sm={2} md={2} lg={2}><SideBar /></Col>
-        <Col sm={10} md={10} lg={10}>
+        <Col sm={2} md={2} lg={2} className="sidebar">
+          <SideBar />
+        </Col>
+        <Col sm={10} md={10} lg={10} className="left-part">
           <NavBar />
           <Switch>
              <Route path="/dashboard">

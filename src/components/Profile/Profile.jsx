@@ -15,7 +15,7 @@ const Profile = () => {
                     payload = {a.payload}
                 />
     })
-    console.log(activity)
+    // console.log(activity)
  return(
      <div className="profile">
          {eventsUser}

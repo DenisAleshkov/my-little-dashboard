@@ -1,0 +1,19 @@
+.outer a{
+    color: #212529;
+}
+.outer a:hover{
+    color: #212529;
+    text-decoration: none;
+}
+
+.total a {
+    color: #6c757d;
+}
+.total a:hover {
+    color: #6c757d;
+    text-decoration: none;
+}
+
+nav ol.breadcrumb {
+    margin-bottom: 0;
+}
