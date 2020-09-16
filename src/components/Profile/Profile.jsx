@@ -17,7 +17,7 @@ const Profile = () => {
     })
     // console.log(activity)
  return(
-     <div className="profile">
+     <div className="profile main">
          {eventsUser}
      </div>
  )

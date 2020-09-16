@@ -4,15 +4,15 @@ const GithubContext = React.createContext()
 
 const GithubProvider = ({ children }) => {
 
-    const [repos, setRepos] = React.useState([]);
-    const [followers, setFollowers] = React.useState('');
-    const [following, setFollowing] = React.useState('');
-    const [avatar, setAvatar] = React.useState('');
-    const [loading, setLoading] = React.useState(false);
-    const [error, setError] = React.useState(false);
-    const [login, setLogin] = React.useState('');
-    const [activity, setActivity] = React.useState([]);
-
+    const [repos, setRepos] = React.useState([])
+    const [followers, setFollowers] = React.useState('')
+    const [following, setFollowing] = React.useState('')
+    const [avatar, setAvatar] = React.useState('')
+    const [loading, setLoading] = React.useState(false)
+    const [error, setError] = React.useState(false)
+    const [login, setLogin] = React.useState('')
+    const [activity, setActivity] = React.useState([])
+    const [contributions, setContributions ] = React.useState([])
     
 
     const searchGithubUser =  async (user) => {
@@ -39,6 +39,15 @@ const GithubProvider = ({ children }) => {
 
             setActivity(dataActivity)
 
+            const proxyUrl = 'https://cors-anywhere.herokuapp.com/'
+            const rewUrl = `http://github-calendar.herokuapp.com/commits/last/${user}`
+            const responseContrib = await fetch(proxyUrl + rewUrl)
+            const dataContrib =  await responseContrib.json()
+
+            setContributions(dataContrib.data)
+
+
+            
             // console.log('Activity:',dataActivity)
         }
         setLoading(false)
@@ -60,7 +69,8 @@ const GithubProvider = ({ children }) => {
              following,
              login,
              repos,
-             activity
+             activity,
+             contributions 
         }}>
              {children}
          </GithubContext.Provider>   

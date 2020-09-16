@@ -11,17 +11,8 @@ const NavBar = () => {
     const { avatar, loading, login } = React.useContext(GithubContext);
 
    return(
-  //  <Navbar>
-  //     <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
-  //     <Navbar.Collapse className="justify-content-end">
-  //       <span>{login}</span>
-  //         {
-  //           loading ? <Loading /> : <Image className="avatar" src={ avatar } roundedCircle />
-  //         }
-  //     </Navbar.Collapse>
-  //   </Navbar>
   <Navbar collapseOnSelect expand="lg">
-  <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+  <Navbar.Brand href="#home">Github-Portfolio</Navbar.Brand>
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="mr-auto">

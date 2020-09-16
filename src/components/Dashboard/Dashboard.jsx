@@ -11,7 +11,7 @@ const Dashboard = () => {
     const { following, followers } = React.useContext(GithubContext);
 
     return(
-       <div className="dashboard">
+       <div className="dashboard main">
            <div className="search-box">
                 <BreadcrumbComponent />
                 <SearchUser />

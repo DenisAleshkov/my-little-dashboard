@@ -42,7 +42,7 @@ const Statistick = () => {
 
     
  return(
-     <div className="stats">
+     <div className="stats main">
         <PieComponent languages = { languages } />
         <BarComponent stars = { stars }/>
      </div>
