@@ -9,7 +9,8 @@ import './Dashboard.css'
 const Dashboard = () => {
 
     const { following, followers } = React.useContext(GithubContext);
-
+    console.log('Render Dashboard')
+    
     return(
        <div className="dashboard main">
            <div className="search-box">

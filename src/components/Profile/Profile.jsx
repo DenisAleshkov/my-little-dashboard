@@ -4,6 +4,7 @@ import { GithubContext } from './../../context/context'
 import './Profile.css'
 
 const Profile = () => {
+    console.log('Render Profile')
     
  const { activity } = React.useContext(GithubContext)  
     const eventsUser = activity.map((a) => {

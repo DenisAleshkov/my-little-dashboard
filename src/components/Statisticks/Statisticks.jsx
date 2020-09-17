@@ -7,7 +7,7 @@ import './Statisticks.css'
 const Statistick = () => {
 
     const { repos  } = React.useContext(GithubContext)
-    
+    console.log('Render Statisticks')
     
    
    
