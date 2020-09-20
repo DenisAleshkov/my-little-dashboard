@@ -21,18 +21,17 @@ const GithubProvider = ({ children }) => {
         const responseUser = await fetch(`https://api.github.com/users/${user}`)
         .catch( (err) => console.log('err',err))
         const dataUser = await responseUser.json()
-        if(dataUser){
+        if(responseUser.ok){
 
             setAvatar(dataUser.avatar_url)
             setFollowers(dataUser.followers)
             setFollowing(dataUser.following)
             setLogin(dataUser.login)
             
-            const responseRepos = await fetch(`https://api.github.com/users/${user}/repos?per_page=100`)
+            const responseRepos = await fetch(`https://api.github.com/users/${user}/repos?per_page=50`)
             const dataRepos = await responseRepos.json()
-           
+        
             setRepos(dataRepos)
-            // console.log('Repos:',dataRepos)
 
             const responseActivity = await fetch(`https://api.github.com/users/${user}/received_events`)
             const dataActivity = await responseActivity.json()
@@ -45,17 +44,18 @@ const GithubProvider = ({ children }) => {
             const dataContrib =  await responseContrib.json()
 
             setContributions(dataContrib.data)
-
-
+            setError(false)
             
-            // console.log('Activity:',dataActivity)
+        }
+         else{
+             setError(true)
         }
         setLoading(false)
+        
     }
 
 
     React.useEffect(()=>{
-        // searchGithubUser('bradtraversy')
         searchGithubUser('DenisAleshkov')
     }, [])
 

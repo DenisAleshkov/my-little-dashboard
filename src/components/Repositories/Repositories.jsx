@@ -1,10 +1,20 @@
-import React, { } from "react";
-
+import React, { } from 'react'
+import { GithubContext } from './../../context/context'
 
 const Repositories = () => {
+    const { repos } = React.useContext(GithubContext)
+    console.log(repos)
  return(
      <>
-     Repositories
+     <div>
+
+     </div>
+     <div>
+
+     </div>
+     <div>
+
+     </div>
      </>
  )
 }

@@ -1,12 +1,13 @@
 import React, { } from "react"
 import Events from './Events.jsx'
+import CardProfile  from './CardProfile'
 import { GithubContext } from './../../context/context'
 import './Profile.css'
 
 const Profile = () => {
     console.log('Render Profile')
     
- const { activity } = React.useContext(GithubContext)  
+ const { activity, login } = React.useContext(GithubContext)  
     const eventsUser = activity.map((a) => {
         return <Events 
                     key = {a.id} 

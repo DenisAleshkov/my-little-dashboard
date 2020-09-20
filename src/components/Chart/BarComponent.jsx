@@ -5,7 +5,7 @@ import { GithubContext } from './../../context/context'
 const BarComponent = () => {
 
   const { contributions } = React.useContext(GithubContext)
-
+  const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     function daysInMonth(month, year) {
 
         let arrayDay = new Array(new Date(year, month, 0).getDate())
@@ -20,7 +20,7 @@ const BarComponent = () => {
     const data = {
     labels: days,
     datasets: [{
-      label: 'Сontributions in the last month',
+      label: `Сontributions in the ${MONTHS[date.getMonth()]}`,
       data: contributions,
       backgroundColor: 'rgba(255,99,132,0.2)',
       borderColor: 'rgba(255,99,132,1)',
@@ -29,10 +29,6 @@ const BarComponent = () => {
       hoverBorderColor: 'rgba(255,99,132,1)',
     }],
   };
-
-  const options = {
-    
-  }
     return (
         <div className="bar" style={{
             'height': '450px',

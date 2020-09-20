@@ -4,9 +4,13 @@
 
 div.left-part {
     padding: 0;
-    background-color: #ededee;
+   
 }
 
 .main {
     padding: 3rem;
+}
+
+.container-fluid {
+    background-color: #ededee;
 }

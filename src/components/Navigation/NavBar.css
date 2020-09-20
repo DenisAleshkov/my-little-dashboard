@@ -3,9 +3,7 @@
    cursor: pointer;
 };
 
-div.avatar {
-   display: flex;
-   align-items: center;
+.navbar-collapse div.avatar {
 }
 
 nav.navbar {
