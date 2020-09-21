@@ -1,6 +1,5 @@
 import React, { } from "react"
 import Events from './Events.jsx'
-import CardProfile  from './CardProfile'
 import { GithubContext } from './../../context/context'
 import './Profile.css'
 

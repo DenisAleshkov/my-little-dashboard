@@ -21,6 +21,7 @@ const GithubProvider = ({ children }) => {
         const responseUser = await fetch(`https://api.github.com/users/${user}`)
         .catch( (err) => console.log('err',err))
         const dataUser = await responseUser.json()
+        console.log(dataUser)
         if(responseUser.ok){
 
             setAvatar(dataUser.avatar_url)
@@ -45,6 +46,8 @@ const GithubProvider = ({ children }) => {
 
             setContributions(dataContrib.data)
             setError(false)
+
+            
             
         }
          else{
