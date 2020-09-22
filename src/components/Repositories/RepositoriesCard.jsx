@@ -8,16 +8,16 @@ const RepositoriesCard = ({
             name,
             stars ,
             update,
-            watchers,
+            watchers
 }) => {
     return (
         <Jumbotron>
-            <h1>Name:{name}</h1>
-            <h1>Stars:{stars}</h1>
-            <h1>Watchers:{watchers}</h1>
-            <h1>Language:{language}</h1>
-            <h1>forks:{forksCount}</h1>
-            <h1>Update:{update}</h1>
+            <span>Name:{name}</span>
+            <span>Stars:{stars}</span>
+            <span>Watchers:{watchers}</span>
+            <span>Language:{language}</span>
+            <span>forks:{forksCount}</span>
+            <span>Update:{update}</span>
             <p>
                 <a href={htmlUrl}>Link to repositories</a>
             </p>
