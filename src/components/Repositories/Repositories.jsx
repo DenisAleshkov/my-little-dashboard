@@ -9,17 +9,17 @@ const Repositories = () => {
     console.log(repos)
    
     const [currentPage, setCurrentPage] = React.useState(1);
-    const [postsPerPage] = React.useState(5);
+    const [reposPerPage] = React.useState(5);
 
-    const indexOfLastPost = currentPage * postsPerPage;
-    const indexOfFirstPost = indexOfLastPost - postsPerPage;
-    const currentPosts = repos.slice(indexOfFirstPost, indexOfLastPost);
+    const indexOfLastRepos = currentPage * reposPerPage;
+    const indexOfFirstRepos = indexOfLastRepos - reposPerPage;
+    const currentRepos = repos.slice(indexOfFirstRepos, indexOfLastRepos);
 
     const paginate = pageNumber => setCurrentPage(pageNumber);
     if(loading) {
         return <Loading />
     }
-    const  reposList =  currentPosts.map( (r) => {
+    const  reposList =  currentRepos.map( (r) => {
         return <RepositoriesCard 
             key = {r.id}
             forksCount = {r.forks_count}
@@ -35,15 +35,15 @@ const Repositories = () => {
  return(
      <>
      <PaginationComponent
-        postsPerPage={postsPerPage}
-        totalPosts={repos.length}
+        reposPerPage={reposPerPage}
+        totalRepos={repos.length}
         paginate={paginate}
         currentPage={currentPage}
       />
         {reposList}
       <PaginationComponent
-        postsPerPage={postsPerPage}
-        totalPosts={repos.length}
+        reposPerPage={reposPerPage}
+        totalRepos={repos.length}
         paginate={paginate}
         currentPage={currentPage}
       />
