@@ -1,31 +1,17 @@
 import React from 'react';
-import { LinkContainer } from 'react-router-bootstrap'
-import { Button } from 'react-bootstrap'
-
-const PaginationComponent = ({ postsPerPage, totalPosts, paginate }) => {
+import { Pagination } from 'react-bootstrap'
+import './Pagination.css'
+const PaginationComponent = ({ postsPerPage, totalPosts, paginate, currentPage }) => {
     const pageNumbers = [];
-
-    for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
-        pageNumbers.push(i);
+    for (let number = 1; number <= Math.ceil(totalPosts / postsPerPage); number++) {
+        pageNumbers.push(
+            <Pagination.Item key={number} active={number === currentPage} onClick={() => paginate(number)}>
+                {number}
+            </Pagination.Item>,
+        );
     }
-
     return (
-        <nav>
-            <ul className='pagination'>
-                {pageNumbers.map(number => (
-                    <li key={number} className='page-item'>
-
-                        <LinkContainer to={number}>
-                            <Button 
-                            onClick={() => paginate(number)} 
-                            className='page-link' 
-                            eventKey={number}
-                            > {number}</Button>
-                        </LinkContainer>
-                    </li>
-                ))}
-            </ul>
-        </nav>
+        <><Pagination>{pageNumbers}</Pagination></>
     );
 };
 

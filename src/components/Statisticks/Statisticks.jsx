@@ -1,12 +1,13 @@
 import React, { } from "react"
-import { GithubContext } from './../../context/context'
+import Loading from './../../utils/Loading'
 import PieComponent from './../Chart/PieComponent'
 import BarComponent from './../Chart/BarComponent'
+import { GithubContext } from './../../context/context'
 import './Statisticks.css'
 
 const Statistick = () => {
 
-    const { repos  } = React.useContext(GithubContext)
+    const { repos, loading  } = React.useContext(GithubContext)
     console.log('Render Statisticks')
     
    
@@ -39,7 +40,9 @@ const Statistick = () => {
      
         return previousValue
       }, {})
-
+      if(loading) {
+        return <Loading />
+    }
     
  return(
      <div className="stats main">

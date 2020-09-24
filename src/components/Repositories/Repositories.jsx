@@ -7,15 +7,18 @@ import Loading from './../../utils/Loading'
 const Repositories = () => {
     const { repos, loading } = React.useContext(GithubContext)
     console.log(repos)
+   
     const [currentPage, setCurrentPage] = React.useState(1);
-    const [postsPerPage] = React.useState(10);
+    const [postsPerPage] = React.useState(5);
 
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
     const currentPosts = repos.slice(indexOfFirstPost, indexOfLastPost);
 
     const paginate = pageNumber => setCurrentPage(pageNumber);
-
+    if(loading) {
+        return <Loading />
+    }
     const  reposList =  currentPosts.map( (r) => {
         return <RepositoriesCard 
             key = {r.id}
@@ -35,8 +38,15 @@ const Repositories = () => {
         postsPerPage={postsPerPage}
         totalPosts={repos.length}
         paginate={paginate}
+        currentPage={currentPage}
       />
         {reposList}
+      <PaginationComponent
+        postsPerPage={postsPerPage}
+        totalPosts={repos.length}
+        paginate={paginate}
+        currentPage={currentPage}
+      />
      </>
  )
 }
