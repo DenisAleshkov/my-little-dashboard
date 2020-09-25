@@ -3,6 +3,7 @@ import RepositoriesCard from './RepositoriesCard'
 import { GithubContext } from './../../context/context'
 import PaginationComponent from './../Pagination/Pagination'
 import Loading from './../../utils/Loading'
+import './RepositoriesCard.css'
 
 const Repositories = () => {
     const { repos, loading } = React.useContext(GithubContext)
@@ -29,25 +30,20 @@ const Repositories = () => {
             stars =  {r.stargazers_count}
             update = {r.updated_at}
             watchers = {r.watchers_count}
+            avatar = { r.owner.avatar_url }
         />
     } )
 
  return(
-     <>
-     <PaginationComponent
-        reposPerPage={reposPerPage}
-        totalRepos={repos.length}
-        paginate={paginate}
-        currentPage={currentPage}
-      />
-        {reposList}
+     <div className="repositories main">
+       <div className="card-wrapper">{reposList}</div>
       <PaginationComponent
         reposPerPage={reposPerPage}
         totalRepos={repos.length}
         paginate={paginate}
         currentPage={currentPage}
       />
-     </>
+     </div>
  )
 }
 export default Repositories
