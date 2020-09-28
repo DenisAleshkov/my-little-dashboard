@@ -34,7 +34,7 @@ const GithubProvider = ({ children }) => {
         
             setRepos(dataRepos)
 
-            const responseActivity = await fetch(`https://api.github.com/users/${user}/received_events`)
+            const responseActivity = await fetch(`https://api.github.com/users/${user}/events`)
             const dataActivity = await responseActivity.json()
 
             setActivity(dataActivity)

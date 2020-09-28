@@ -1,10 +1,11 @@
 import React from 'react';
 import Error from './../../utils/Error'
-import { Nav, Navbar } from 'react-bootstrap';
-import { LinkContainer } from 'react-router-bootstrap';
-import { GithubContext } from './../../context/context';
+import Loading from './../../utils/Loading'
+import { Nav, Navbar } from 'react-bootstrap'
+import { LinkContainer } from 'react-router-bootstrap'
+import { GithubContext } from './../../context/context'
 import { Image } from 'react-bootstrap';
-import Loading from './../../utils/Loading';
+import { Display, FileEarmarkPerson, GraphUp, FileEarmarkText } from 'react-bootstrap-icons';
 import './NavBar.css';
 
 const NavBar = () => {
@@ -20,16 +21,28 @@ const NavBar = () => {
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
                     <LinkContainer to="/dashboard">
-                        <Nav.Link eventKey="dashboard">Dashboard</Nav.Link>
+                         <Nav.Link eventKey="dashboard">
+                             <Display className="nav-icons" />
+                             Dashboard
+                        </Nav.Link>
                     </LinkContainer>
                     <LinkContainer to="/profile">
-                        <Nav.Link eventKey="profile">Profile</Nav.Link>
+                        <Nav.Link eventKey="profile">
+                            <FileEarmarkPerson className="nav-icons" />
+                            Profile
+                        </Nav.Link>
                     </LinkContainer>
                     <LinkContainer to="/repositories">
-                        <Nav.Link eventKey="repositories">Repositories</Nav.Link>
+                        <Nav.Link eventKey="repositories">
+                            <FileEarmarkText className="nav-icons"  />
+                            Repositories
+                        </Nav.Link>
                     </LinkContainer>
                     <LinkContainer to="/statisticks">
-                        <Nav.Link eventKey="statisticks">Statisticks</Nav.Link>
+                        <Nav.Link eventKey="statisticks">
+                            <GraphUp className="nav-icons" />
+                            Statisticks
+                        </Nav.Link>
                     </LinkContainer>
                 </Nav>
                 <Nav className="avatar" style={{ alignItems: 'center' }}>

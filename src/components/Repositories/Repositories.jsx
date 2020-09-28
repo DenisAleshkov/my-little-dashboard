@@ -7,10 +7,9 @@ import './RepositoriesCard.css'
 
 const Repositories = () => {
     const { repos, loading } = React.useContext(GithubContext)
-    console.log(repos)
    
     const [currentPage, setCurrentPage] = React.useState(1);
-    const [reposPerPage] = React.useState(5);
+    const [reposPerPage] = React.useState(6);
 
     const indexOfLastRepos = currentPage * reposPerPage;
     const indexOfFirstRepos = indexOfLastRepos - reposPerPage;

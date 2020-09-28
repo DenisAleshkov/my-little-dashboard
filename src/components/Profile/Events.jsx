@@ -1,26 +1,14 @@
 import React from 'react'
-import { Toast } from 'react-bootstrap'
-const Events = ({ payload, type, date, repo }) => {
-//    console.log('payload', payload)
+import { Alert } from 'react-bootstrap'
+const Events = ({ name, type, date }) =>{
     return (
-        <Toast>
-            <div className="toast-header">
-                <strong className="mr-auto">{type}</strong>
-                <small>{date}</small>
-            </div>
-        <Toast.Body>
-            <div className="body-text">
-                repositories:{ repo }
-            </div>
-            <div className="body-text">
-                type:{type}
-            </div>
-            <div className="body-text">
-                info: 
-            </div>
-        </Toast.Body>
-        
-        </Toast>
+      
+        <Alert  variant="info">
+        <div>name: {name}</div>
+       <div>type : {type} </div>
+        <div>date : {date} </div>
+      </Alert>
+     
     )
 }
 
