@@ -1,9 +1,10 @@
-import React from 'react';
-import NavBar from './components/Navigation/NavBar';
-import Dashboard from './components/Dashboard/Dashboard';
-import Profile from './components/Profile/Profile';
-import Repositories from './components/Repositories/Repositories';
-import Statisticks from './components/Statisticks/Statisticks';
+import React from 'react'
+import NavBar from './components/Navigation/NavBar'
+import Followers from './components/Follow/Followers'
+import Dashboard from './components/Dashboard/Dashboard'
+import Profile from './components/Profile/Profile'
+import Repositories from './components/Repositories/Repositories'
+import Statisticks from './components/Statisticks/Statisticks'
 import { Container, Row, Col } from 'react-bootstrap'
 import {
   BrowserRouter as Router,
@@ -23,6 +24,9 @@ function App() {
             <Col className="left-part">
               <NavBar />
               <Switch>
+              <Route path="/followers">
+                  <Followers />
+                </Route>
                 <Route path="/dashboard">
                   <Dashboard />
                 </Route>

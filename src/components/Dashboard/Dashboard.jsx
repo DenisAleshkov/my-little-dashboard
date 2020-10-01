@@ -1,6 +1,6 @@
 import React from 'react'
 import SearchUser from './SearchUser'
-import Followers from './Followers'
+import FollowersLink from './FollowersLink'
 import Following from './Following'
 import BreadcrumbComponent from './BreadcrumbComponent'
 import { GithubContext } from './../../context/context'
@@ -17,7 +17,7 @@ const Dashboard = () => {
               <SearchUser />
            </div>
             <div className="dashboard-follow">
-            <Followers followers = {followers}/>
+            <FollowersLink followers= { followers }/>
             <Following following = {following}/>
             </div>
        </div>

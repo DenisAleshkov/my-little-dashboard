@@ -5,7 +5,7 @@ const GithubContext = React.createContext()
 const GithubProvider = ({ children }) => {
 
     const [repos, setRepos] = React.useState([])
-    const [followers, setFollowers] = React.useState('')
+    const [followers, setFollowers] = React.useState([])
     const [following, setFollowing] = React.useState('')
     const [avatar, setAvatar] = React.useState('')
     const [loading, setLoading] = React.useState(false)
@@ -18,14 +18,17 @@ const GithubProvider = ({ children }) => {
     const searchGithubUser =  async (user) => {
         console.log('search')
         setLoading(true)
+
         const responseUser = await fetch(`https://api.github.com/users/${user}`)
         .catch( (err) => console.log('err',err))
+
         const dataUser = await responseUser.json()
+
         console.log(dataUser)
+        
         if(responseUser.ok){
 
             setAvatar(dataUser.avatar_url)
-            setFollowers(dataUser.followers)
             setFollowing(dataUser.following)
             setLogin(dataUser.login)
             
@@ -45,9 +48,13 @@ const GithubProvider = ({ children }) => {
             const dataContrib =  await responseContrib.json()
 
             setContributions(dataContrib.data)
-            setError(false)
+          
 
-            
+            const responseFollowers = await fetch(`https://api.github.com/users/${user}/followers`)
+            const dataFollowers = await responseFollowers.json()
+            setFollowers(dataFollowers)
+
+            setError(false)
             
         }
          else{
