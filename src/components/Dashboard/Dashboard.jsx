@@ -1,14 +1,18 @@
 import React from 'react'
 import SearchUser from './SearchUser'
 import FollowersLink from './FollowersLink'
-import Following from './Following'
+import FollowingLink from './FollowingLink'
 import BreadcrumbComponent from './BreadcrumbComponent'
+import Loading from './../../utils/Loading'
 import { GithubContext } from './../../context/context'
 import './Dashboard.css'
 
 const Dashboard = () => {
 
-    const { following, followers } = React.useContext(GithubContext);
+    const { following, followers, loading } = React.useContext(GithubContext);
+    if(loading) {
+        return <Loading />
+    }
     console.log('Render Dashboard')
     return(
        <div className="dashboard main">
@@ -18,7 +22,7 @@ const Dashboard = () => {
            </div>
             <div className="dashboard-follow">
             <FollowersLink followers= { followers }/>
-            <Following following = {following}/>
+            <FollowingLink following = { following }/>
             </div>
        </div>
     )

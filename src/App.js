@@ -1,6 +1,7 @@
 import React from 'react'
 import NavBar from './components/Navigation/NavBar'
 import Followers from './components/Follow/Followers'
+import Following from './components/Follow/Following'
 import Dashboard from './components/Dashboard/Dashboard'
 import Profile from './components/Profile/Profile'
 import Repositories from './components/Repositories/Repositories'
@@ -26,6 +27,9 @@ function App() {
               <Switch>
               <Route path="/followers">
                   <Followers />
+                </Route>
+                <Route path="/following">
+                  <Following />
                 </Route>
                 <Route path="/dashboard">
                   <Dashboard />

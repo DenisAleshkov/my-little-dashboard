@@ -6,7 +6,7 @@ const GithubProvider = ({ children }) => {
 
     const [repos, setRepos] = React.useState([])
     const [followers, setFollowers] = React.useState([])
-    const [following, setFollowing] = React.useState('')
+    const [following, setFollowing] = React.useState([])
     const [avatar, setAvatar] = React.useState('')
     const [loading, setLoading] = React.useState(false)
     const [error, setError] = React.useState(false)
@@ -25,11 +25,10 @@ const GithubProvider = ({ children }) => {
         const dataUser = await responseUser.json()
 
         console.log(dataUser)
-        
+
         if(responseUser.ok){
 
             setAvatar(dataUser.avatar_url)
-            setFollowing(dataUser.following)
             setLogin(dataUser.login)
             
             const responseRepos = await fetch(`https://api.github.com/users/${user}/repos?per_page=50`)
@@ -53,6 +52,10 @@ const GithubProvider = ({ children }) => {
             const responseFollowers = await fetch(`https://api.github.com/users/${user}/followers`)
             const dataFollowers = await responseFollowers.json()
             setFollowers(dataFollowers)
+
+            const responseFollowing = await fetch(`https://api.github.com/users/${user}/following`)
+            const dataFollowing = await responseFollowing.json()
+            setFollowing(dataFollowing)
 
             setError(false)
             
