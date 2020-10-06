@@ -3,7 +3,7 @@ import NavBar from './components/Navigation/NavBar'
 import Followers from './components/Follow/Followers'
 import Following from './components/Follow/Following'
 import Dashboard from './components/Dashboard/Dashboard'
-import Profile from './components/Profile/Profile'
+import Activity from './components/Activity/Activity'
 import Repositories from './components/Repositories/Repositories'
 import Statisticks from './components/Statisticks/Statisticks'
 import { Container, Row, Col } from 'react-bootstrap'
@@ -20,12 +20,13 @@ function App() {
   return (
     <div className="App">
       <Router>
+        <NavBar />
         <Container fluid>
           <Row>
             <Col className="left-part">
-              <NavBar />
+
               <Switch>
-              <Route path="/followers">
+                <Route path="/followers">
                   <Followers />
                 </Route>
                 <Route path="/following">
@@ -37,8 +38,8 @@ function App() {
                 <Route path="/statisticks">
                   <Statisticks />
                 </Route>
-                <Route path="/profile">
-                  <Profile />
+                <Route path="/activity">
+                  <Activity />
                 </Route>
                 <Route path="/repositories">
                   <Repositories />
@@ -49,7 +50,6 @@ function App() {
           <Row>
           </Row>
         </Container>
-
       </Router>
     </div>
   )

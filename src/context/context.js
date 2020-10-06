@@ -5,6 +5,8 @@ const GithubContext = React.createContext()
 const GithubProvider = ({ children }) => {
 
     const [repos, setRepos] = React.useState([])
+    const [info, setInfo] = React.useState({})
+    const [starred, setStarred] = React.useState([])
     const [followers, setFollowers] = React.useState([])
     const [following, setFollowing] = React.useState([])
     const [avatar, setAvatar] = React.useState('')
@@ -30,6 +32,20 @@ const GithubProvider = ({ children }) => {
 
             setAvatar(dataUser.avatar_url)
             setLogin(dataUser.login)
+
+            setInfo({
+                avatar: dataUser.avatar_url,
+                login: dataUser.login,
+                bio: dataUser.bio,
+                blog: dataUser.blog,
+                twitterName: dataUser.twitter_username,
+                name: dataUser.name
+            })
+
+            const responseStarred = await fetch(`https://api.github.com/users/${user}/starred`)
+            const dataStarred  = await responseStarred.json()
+
+            setStarred(dataStarred)
             
             const responseRepos = await fetch(`https://api.github.com/users/${user}/repos?per_page=50`)
             const dataRepos = await responseRepos.json()
@@ -83,7 +99,9 @@ const GithubProvider = ({ children }) => {
              login,
              repos,
              activity,
-             contributions 
+             contributions,
+             starred,
+             info
         }}>
              {children}
          </GithubContext.Provider>   

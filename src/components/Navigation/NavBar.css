@@ -4,9 +4,10 @@
 };
 
 
-nav.navbar {
-   box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+div .navbar-expand-lg {
    background-color: #fff;
+   webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12)!important;
+   box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12)!important;
 }
 
 div .navbar-nav .nav-link {

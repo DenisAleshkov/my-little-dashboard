@@ -1,0 +1,8 @@
+.fade {
+    margin: 0 20px 40px 20px;
+}
+
+.activity-list {
+    display: flex;
+    flex-wrap: wrap;
+} 

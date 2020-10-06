@@ -26,10 +26,10 @@ const NavBar = () => {
                              Dashboard
                         </Nav.Link>
                     </LinkContainer>
-                    <LinkContainer to="/profile">
-                        <Nav.Link eventKey="profile">
+                    <LinkContainer to="/activity">
+                        <Nav.Link eventKey="activity">
                             <FileEarmarkPerson className="nav-icons" />
-                            Profile
+                            Activity
                         </Nav.Link>
                     </LinkContainer>
                     <LinkContainer to="/repositories">

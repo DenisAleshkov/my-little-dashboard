@@ -1,44 +1,19 @@
-import React, { } from "react"
-import Events from './Events.jsx'
+import React from 'react'
 import { GithubContext } from './../../context/context'
+import {Image} from 'react-bootstrap'
 import './Profile.css'
 
 const Profile = () => {
-    console.log('Render Profile')
-
-    const { activity } = React.useContext(GithubContext)
-
-    function daysInMonth (month, year) {
-        return new Date(year, month, 0).getDate();
-    }
-
-    const date = new Date()
-   
-     const events = activity.map((a) => {
-        if (date.getDate() - 7 <= new Date(a.created_at).getDate()
-            && date.getMonth() <= new Date(a.created_at).getMonth()) {
-            return (
-                <Events key={a.id} name={a.repo.name} date={a.created_at}
-                    type={a.type} />
-            )
-        }
-        else{
-            if(daysInMonth(date.getMonth(), date.getFullYear()) + date.getDate() - 7 <= new Date(a.created_at).getDate()
-            && date.getMonth() <= new Date(a.created_at).getMonth()+1){
-                return (
-                    <Events key={a.id} name={a.repo.name} date={a.created_at}
-                        type={a.type} />
-                )
-            }
-        }
-
-    })
-
-
-    return (
-        <div className="profile main">
-            {events}
-        </div>
+    const {info } = React.useContext(GithubContext)
+    console.log(info)
+    return(
+        <>
+          {/* <Image src={avatar} roundedCircle style={{width: 'inherit'}} />
+       
+            <span>{login}</span> */}
+            Profile
+        </>
     )
 }
+
 export default Profile
