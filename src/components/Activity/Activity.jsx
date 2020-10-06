@@ -42,7 +42,7 @@ const Activity = () => {
     return (
         <Container className="activity main" fluid>
             <Row>
-            <Col className="profile" sm={3}><Profile /></Col>
+            <Col className="profile-part" sm={3}><Profile /></Col>
             <Col className="activity-list" sm={9}>{events}</Col>
             </Row>
         </Container>
