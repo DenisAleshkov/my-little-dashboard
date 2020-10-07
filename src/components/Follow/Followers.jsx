@@ -1,4 +1,5 @@
 import React from 'react'
+import ToBack  from './../../utils/ToBack'
 import { GithubContext } from './../../context/context'
 import './Follow.css'
 
@@ -17,7 +18,8 @@ const Followers = () => {
 
     return (
         <div className="follow-list main">
-            { followersList}
+            <ToBack link="/dashboard" />
+           { followersList}
         </div>
     )
 }
