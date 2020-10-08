@@ -44,9 +44,10 @@ const GithubProvider = ({ children }) => {
 
             const responseStarred = await fetch(`https://api.github.com/users/${user}/starred`)
             const dataStarred  = await responseStarred.json()
-
-            setStarred(dataStarred)
             
+            setStarred(dataStarred)
+            console.log('dataStarred', dataStarred)
+
             const responseRepos = await fetch(`https://api.github.com/users/${user}/repos?per_page=50`)
             const dataRepos = await responseRepos.json()
         

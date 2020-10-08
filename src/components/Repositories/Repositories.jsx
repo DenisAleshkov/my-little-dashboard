@@ -3,6 +3,7 @@ import RepositoriesCard from './RepositoriesCard'
 import { GithubContext } from './../../context/context'
 import PaginationComponent from './../Pagination/Pagination'
 import Loading from './../../utils/Loading'
+import { Container, Row } from 'react-bootstrap'
 import './RepositoriesCard.css'
 
 const Repositories = () => {
@@ -35,7 +36,11 @@ const Repositories = () => {
 
  return(
      <div className="repositories main">
-       <div className="card-wrapper">{reposList}</div>
+       <Container className="activity main" fluid>
+            <Row className="card-wrapper">
+            {reposList}
+            </Row>
+        </Container>
       <PaginationComponent
         reposPerPage={reposPerPage}
         totalRepos={repos.length}

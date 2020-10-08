@@ -6,6 +6,7 @@ import Dashboard from './components/Dashboard/Dashboard'
 import Activity from './components/Activity/Activity'
 import Repositories from './components/Repositories/Repositories'
 import Statisticks from './components/Statisticks/Statisticks'
+import StarsRepos from './components/StarsRepos/StarsRepos'
 import { Container, Row, Col } from 'react-bootstrap'
 import {
   BrowserRouter as Router,
@@ -43,6 +44,9 @@ function App() {
                 </Route>
                 <Route path="/repositories">
                   <Repositories />
+                </Route>
+                <Route path="/stars">
+                  <StarsRepos />
                 </Route>
               </Switch>
             </Col>
