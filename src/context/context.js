@@ -42,11 +42,7 @@ const GithubProvider = ({ children }) => {
                 name: dataUser.name
             })
 
-            const responseStarred = await fetch(`https://api.github.com/users/${user}/starred`)
-            const dataStarred  = await responseStarred.json()
             
-            setStarred(dataStarred)
-            console.log('dataStarred', dataStarred)
 
             const responseRepos = await fetch(`https://api.github.com/users/${user}/repos?per_page=50`)
             const dataRepos = await responseRepos.json()
@@ -73,6 +69,13 @@ const GithubProvider = ({ children }) => {
             const responseFollowing = await fetch(`https://api.github.com/users/${user}/following`)
             const dataFollowing = await responseFollowing.json()
             setFollowing(dataFollowing)
+
+            const responseStarred = await fetch(`https://api.github.com/users/${user}/starred`)
+            const dataStarred  = await responseStarred.json()
+            console.log('dataStarred', dataStarred)
+            
+            setStarred(dataStarred)
+            console.log('starred', starred)
 
             setError(false)
             

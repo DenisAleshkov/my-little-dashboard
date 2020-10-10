@@ -9,10 +9,10 @@ import './Profile.css'
 
 const Profile = () => {
     const { info, following, followers } = React.useContext(GithubContext)
-    console.log(info)
+  
     return(
         <div className="profile">
-          <Image src={info.avatar} roundedCircle style={{width: '100%'}} />
+          {/* <Image src={info.avatar} roundedCircle style={{width: '100%'}} />
           <LinkContainer to="/stars">
                 <Star />
             </LinkContainer>
@@ -20,9 +20,9 @@ const Profile = () => {
             <div>{info.name ?? ''}</div>
             <div>{info.bio ?? ''}</div>
             <div>{info.twitterName ?? ''}</div>
-            <FollowingLink following={following} />
-            <FollowersLink  followers={followers} />
-            
+            <FollowingLink following={following} />re
+            <FollowersLink  followers={followers} /> */}
+            sf
         </div>
     )
 }

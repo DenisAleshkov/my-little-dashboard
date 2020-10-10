@@ -10,7 +10,7 @@ const Repositories = () => {
     const { repos, loading } = React.useContext(GithubContext)
    
     const [currentPage, setCurrentPage] = React.useState(1);
-    const [reposPerPage] = React.useState(6);
+    const [reposPerPage] = React.useState(8);
 
     const indexOfLastRepos = currentPage * reposPerPage;
     const indexOfFirstRepos = indexOfLastRepos - reposPerPage;
@@ -48,6 +48,7 @@ const Repositories = () => {
         currentPage={currentPage}
       />
      </div>
+   
  )
 }
 export default Repositories

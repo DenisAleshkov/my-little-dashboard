@@ -4,7 +4,7 @@ import Loading from './../../utils/Loading'
 import { Nav, Navbar } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 import { GithubContext } from './../../context/context'
-import { Image } from 'react-bootstrap';
+import { Image, Spinner } from 'react-bootstrap';
 import { Display, FileEarmarkPerson, GraphUp, FileEarmarkText } from 'react-bootstrap-icons';
 import './NavBar.css';
 
@@ -48,7 +48,11 @@ const NavBar = () => {
                 <Nav className="avatar" style={{ alignItems: 'center' }}>
                     <span>{login}</span>
                     {
-                        loading ? <Loading /> : <Image className="avatar-user" src={avatar} roundedCircle />
+                        loading 
+                        ?  <Spinner animation="grow" variant="primary" />
+                        : <LinkContainer to="/profile">
+                            <Image className="avatar-user" src={avatar} roundedCircle />
+                          </LinkContainer>
                     }
                 </Nav>
             </Navbar.Collapse>
