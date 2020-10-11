@@ -37,8 +37,6 @@ const Activity = () => {
         }
 
     })
-
-
     return (
         <Container className="activity main" fluid>
             <Row>

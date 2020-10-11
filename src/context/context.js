@@ -3,7 +3,7 @@ import React from 'react'
 const GithubContext = React.createContext() 
 
 const GithubProvider = ({ children }) => {
-
+    
     const [repos, setRepos] = React.useState([])
     const [info, setInfo] = React.useState({})
     const [starred, setStarred] = React.useState([])
@@ -15,7 +15,7 @@ const GithubProvider = ({ children }) => {
     const [login, setLogin] = React.useState('')
     const [activity, setActivity] = React.useState([])
     const [contributions, setContributions ] = React.useState([])
-    
+   
 
     const searchGithubUser =  async (user) => {
         console.log('search')
@@ -71,16 +71,15 @@ const GithubProvider = ({ children }) => {
             setFollowing(dataFollowing)
 
             const responseStarred = await fetch(`https://api.github.com/users/${user}/starred`)
-            const dataStarred  = await responseStarred.json()
-            console.log('dataStarred', dataStarred)
-            
+            const dataStarred = await responseStarred.json()
             setStarred(dataStarred)
-            console.log('starred', starred)
-
+           
+            
             setError(false)
             
         }
          else{
+             console.log('Catch Error!')
              setError(true)
         }
         setLoading(false)
