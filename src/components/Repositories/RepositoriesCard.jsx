@@ -8,7 +8,6 @@ const RepositoriesCard = ({
     language,
     name,
     stars,
-    update,
     watchers,
     avatar
 }) => {
