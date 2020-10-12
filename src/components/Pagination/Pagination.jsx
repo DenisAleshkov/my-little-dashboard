@@ -11,7 +11,7 @@ const PaginationComponent = ({ reposPerPage, totalRepos, paginate, currentPage }
         );
     }
     return (
-        <><Pagination>{pageNumbers}</Pagination></>
+        <Pagination>{pageNumbers}</Pagination>
     );
 };
 

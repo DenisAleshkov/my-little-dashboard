@@ -24,9 +24,8 @@ function App() {
       <Router>
         <NavBar />
         <Container fluid>
-          <Row>
-            <Col className="left-part">
-
+          <Row className="row-content">
+            <Col className="main-content">
               <Switch>
                 <Route path="/followers">
                   <Followers />
