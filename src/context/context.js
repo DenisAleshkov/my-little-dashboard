@@ -5,6 +5,7 @@ const GithubContext = React.createContext()
 const GithubProvider = ({ children }) => {
     
     const [repos, setRepos] = React.useState([])
+    const [request, SetRequest] = React.useState(0);
     const [info, setInfo] = React.useState({})
     const [starred, setStarred] = React.useState([])
     const [followers, setFollowers] = React.useState([])
@@ -74,7 +75,14 @@ const GithubProvider = ({ children }) => {
             const dataStarred = await responseStarred.json()
             setStarred(dataStarred)
            
-            
+            const responseReq = await fetch(`https://api.github.com/rate_limit`)
+            const dataReq = await responseReq.json()
+            console.log('dataReq', dataReq)
+
+            let { remaining } = dataReq.rate
+            console.log('remaining1', remaining)
+            SetRequest(remaining)
+
             setError(false)
             
         }
@@ -104,7 +112,8 @@ const GithubProvider = ({ children }) => {
              activity,
              contributions,
              starred,
-             info
+             info,
+             request
         }}>
              {children}
          </GithubContext.Provider>   

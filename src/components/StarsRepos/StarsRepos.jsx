@@ -7,7 +7,6 @@ import './StarsRepos.css'
 const StarsRepos = () => {
 
     const { starred } = React.useContext(GithubContext)
-    console.log(starred)
 
     const starRepos = starred.map(r => {
         return <RepositoriesCard

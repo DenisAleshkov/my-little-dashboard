@@ -9,7 +9,6 @@ import './Profile.css'
 
 const Profile = () => {
     const { info, following, followers, starred } = React.useContext(GithubContext)
-    console.log('starred', starred)
 
     return (
         <div className="profile">
