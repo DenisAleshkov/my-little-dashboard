@@ -18,6 +18,8 @@ const GithubProvider = ({ children }) => {
     const [contributions, setContributions ] = React.useState([])
    
 
+    const [progressLoad, setProgressLoad] = React.useState(0);
+
     const searchGithubUser =  async (user) => {
         console.log('search')
         setLoading(true)
@@ -32,8 +34,9 @@ const GithubProvider = ({ children }) => {
         if(responseUser.ok){
 
             setAvatar(dataUser.avatar_url)
+            setProgressLoad(10)
             setLogin(dataUser.login)
-
+            setProgressLoad(20)
             setInfo({
                 avatar: dataUser.avatar_url,
                 login: dataUser.login,
@@ -42,18 +45,19 @@ const GithubProvider = ({ children }) => {
                 twitterName: dataUser.twitter_username,
                 name: dataUser.name
             })
-
+            setProgressLoad(30)
             
-
             const responseRepos = await fetch(`https://api.github.com/users/${user}/repos?per_page=50`)
             const dataRepos = await responseRepos.json()
         
             setRepos(dataRepos)
+            setProgressLoad(40)
 
             const responseActivity = await fetch(`https://api.github.com/users/${user}/events`)
             const dataActivity = await responseActivity.json()
 
             setActivity(dataActivity)
+            setProgressLoad(50)
 
             const proxyUrl = 'https://cors-anywhere.herokuapp.com/'
             const rewUrl = `http://github-calendar.herokuapp.com/commits/last/${user}`
@@ -61,28 +65,33 @@ const GithubProvider = ({ children }) => {
             const dataContrib =  await responseContrib.json()
 
             setContributions(dataContrib.data)
-          
+            setProgressLoad(60)
+           
 
             const responseFollowers = await fetch(`https://api.github.com/users/${user}/followers`)
             const dataFollowers = await responseFollowers.json()
+            
             setFollowers(dataFollowers)
+            setProgressLoad(70)
 
             const responseFollowing = await fetch(`https://api.github.com/users/${user}/following`)
             const dataFollowing = await responseFollowing.json()
+            
             setFollowing(dataFollowing)
+            setProgressLoad(80)
 
             const responseStarred = await fetch(`https://api.github.com/users/${user}/starred`)
             const dataStarred = await responseStarred.json()
+
             setStarred(dataStarred)
-           
+            setProgressLoad(90)
+
             const responseReq = await fetch(`https://api.github.com/rate_limit`)
             const dataReq = await responseReq.json()
-            console.log('dataReq', dataReq)
-
             let { remaining } = dataReq.rate
-            console.log('remaining1', remaining)
-            SetRequest(remaining)
 
+            SetRequest(remaining)
+            setProgressLoad(100)
             setError(false)
             
         }
@@ -113,7 +122,8 @@ const GithubProvider = ({ children }) => {
              contributions,
              starred,
              info,
-             request
+             request,
+             progressLoad
         }}>
              {children}
          </GithubContext.Provider>   

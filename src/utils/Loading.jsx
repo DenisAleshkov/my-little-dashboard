@@ -1,10 +1,14 @@
 import React from 'react'
-import { Spinner } from 'react-bootstrap'
+import { GithubContext } from './../context/context'
+import { ProgressBar } from 'react-bootstrap'
 
 export  const Loading = () => {
+    
+    const { progressLoad }  = React.useContext(GithubContext)
+    
     return(
-        <div>
-             <Spinner animation="border" variant="primary" />
+        <div className="spinner-box">
+             <ProgressBar now={progressLoad} label={`${progressLoad}%`} />
         </div>
     )
 }
