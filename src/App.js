@@ -23,7 +23,7 @@ function App() {
     <div className="App">
       <Router>
         <NavBar />
-        <Container fluid>
+        <Container fluid className="container-content">
           <Row className="row-content">
             <Col className="main-content">
               <Switch>

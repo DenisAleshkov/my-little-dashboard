@@ -2,6 +2,7 @@
     padding: 3rem;
 }
 
-.container-fluid {
+.container-content {
+    min-height: 100vh;
     background-color: #ededee;
 }

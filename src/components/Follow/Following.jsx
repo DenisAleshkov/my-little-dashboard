@@ -18,7 +18,6 @@ const Following = () => {
 
     return (
         <div className="follow-list main">
-            <ToBack link="/dashboard"/>
             { followingList}
         </div>
     )
