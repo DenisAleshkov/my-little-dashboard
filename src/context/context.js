@@ -58,7 +58,7 @@ const GithubProvider = ({ children }) => {
 
             setActivity(dataActivity)
             setProgressLoad(50)
-
+            
             const proxyUrl = 'https://cors-anywhere.herokuapp.com/'
             const rewUrl = `http://github-calendar.herokuapp.com/commits/last/${user}`
             const responseContrib = await fetch(proxyUrl + rewUrl)

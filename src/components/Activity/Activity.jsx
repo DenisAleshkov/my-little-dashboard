@@ -1,6 +1,7 @@
 import React, { } from "react"
 import Events from './Events.jsx'
 import Profile from './../Profile/Profile'
+import Loading from './../../utils/Loading'
 import { GithubContext } from '../../context/context'
 import { Container, Row, Col } from 'react-bootstrap'
 import './Activity.css'
@@ -8,8 +9,8 @@ import './Activity.css'
 const Activity = () => {
     console.log('Render Profile')
 
-    const { activity } = React.useContext(GithubContext)
-
+    const { activity, loading } = React.useContext(GithubContext)
+    if(loading) return <Loading />
     console.log(activity)
 
     function daysInMonth(month, year) {
