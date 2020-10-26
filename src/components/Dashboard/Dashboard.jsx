@@ -11,13 +11,9 @@ import './Dashboard.css'
 const Dashboard = () => {
 
     const { request, following, followers, loading } = React.useContext(GithubContext);
-    console.log('remaining', request)
     if(loading) {
         return <Loading />
     }
-
-   
-
     console.log('Render Dashboard')
     return(
        <div className="dashboard main">

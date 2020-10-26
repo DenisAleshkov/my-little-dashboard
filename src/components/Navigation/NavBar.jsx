@@ -11,7 +11,6 @@ import './NavBar.css';
 const NavBar = () => {
 
     const { avatar, loading, login, error } = React.useContext(GithubContext);
-
     return (<>
         { error && <Error />}
         <Navbar collapseOnSelect expand="lg">
