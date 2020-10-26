@@ -25,7 +25,7 @@ const GithubProvider = ({ children }) => {
         setLoading(true)
 
         const responseUser = await fetch(`https://api.github.com/users/${user}`)
-        .catch( (err) => console.log('err',err))
+        .catch( (err) => console.log('Error:',err))
 
         const dataUser = await responseUser.json()
 

@@ -1,27 +1,25 @@
-import React from 'react';
-import { Alert } from 'react-bootstrap';
+import React from 'react'
+import swal from 'sweetalert2'
+import { withSwalInstance } from 'sweetalert2-react'
 import './Error.css'
 
-const Error = ({ error }) => {
-    console.log('error', error)
-    const [err, setErr] = React.useState(error);
+
+
+const Error = ({ error, later }) => {
+    console.log('later', later)
+    const SweetAlert = withSwalInstance(swal);
+    const [show, setShow] = React.useState(error)
     
-    let interval = null
-    React.useEffect(()=>{
-        interval = setTimeout(() => setErr(false), 2000)
-        return () => clearInterval(interval);
- 
-    }, [])
-    console.log('error', error)
 
-    const toggleErr = () => setErr(!err);
+    return (
 
-   
-
-    return(
-            <Alert  show={err} onClose={toggleErr} variant='danger'>
-                Error
-            </Alert>
+        <SweetAlert
+            show={show}
+            title='Error'
+            type = 'error'
+            text='Not Found'
+            onConfirm={() => setShow(!show)}
+        />
     )
 }
 

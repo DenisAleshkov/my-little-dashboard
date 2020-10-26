@@ -1,18 +1,18 @@
-import React from 'react';
+import React from 'react'
 import Error from './../../utils/Error'
-import Loading from './../../utils/Loading'
 import { Nav, Navbar } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 import { GithubContext } from './../../context/context'
-import { Image, Spinner } from 'react-bootstrap';
-import { Display, FileEarmarkPerson, GraphUp, FileEarmarkText } from 'react-bootstrap-icons';
+import { Image, Spinner } from 'react-bootstrap'
+import { Display, FileEarmarkPerson, GraphUp, FileEarmarkText } from 'react-bootstrap-icons'
 import './NavBar.css';
 
 const NavBar = () => {
 
-    const { avatar, loading, login, error } = React.useContext(GithubContext);
+    const { avatar, loading, login, error } = React.useContext(GithubContext)
+   
     return (<>
-        { error && <Error />}
+        { error && <Error error = {error} />}
         <Navbar collapseOnSelect expand="lg">
 
             <Navbar.Brand href="#home">Github-Portfolio</Navbar.Brand>
