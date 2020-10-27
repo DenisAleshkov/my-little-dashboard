@@ -8,20 +8,27 @@ import { Star, Person } from 'react-bootstrap-icons'
 import './Profile.css'
 
 const Profile = () => {
-    const { info, following, followers, starred } = React.useContext(GithubContext)
+    const { info, starred, following, followers } = React.useContext(GithubContext)
 
     return (
         <div className="profile">
             <div className="profile-card">
                 <Image src={info.avatar} roundedCircle className="github-avatar" />
                 <div className="profile-link">
+
                     <div className="profile-following">
-                        <Person />
-                        <FollowingLink following={following} />
+                    <Person />
+                        <LinkContainer to="/followers">
+                            <span>{followers.length}follower</span>
+                        </LinkContainer>
                     </div>
+
                     <div className="profile-follower">
-                        <FollowersLink followers={followers} />
+                        <LinkContainer to="/followers">
+                            <span>{following.length}following</span>
+                        </LinkContainer>
                     </div>
+
                     <LinkContainer to="/stars">
                         <span className="star-icon">
                             <Star className="star-svg" />
@@ -36,8 +43,8 @@ const Profile = () => {
                     ? `https://twitter.com/${info.twitterName}`
                     : ''
                 }>{info.twitterName ? `@${info.twitterName}` : ''}</a>
-            </div>
-        </div>
+            </div>   </div>
+
     )
 }
 
