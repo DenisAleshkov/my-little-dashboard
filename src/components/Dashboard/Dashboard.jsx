@@ -1,4 +1,5 @@
 import React from 'react'
+import Notification from './../../utils/Notification'
 import SearchUser from './SearchUser'
 import FollowersLink from './FollowersLink'
 import FollowingLink from './FollowingLink'
@@ -17,6 +18,8 @@ const Dashboard = () => {
     }
     console.log('Render Dashboard')
     return(
+        <>
+        
        <div className="dashboard main">
            <div className="search-box">
                 <BreadcrumbComponent />
@@ -30,6 +33,7 @@ const Dashboard = () => {
                 <Col className="req-item" md={4} xs={4}><ProgressRequest request={request}/></Col>
             </Row>
        </div>
+       </>
     )
 }
 

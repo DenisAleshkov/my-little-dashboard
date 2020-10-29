@@ -5,22 +5,19 @@ import './Error.css'
 
 
 
-const Error = ({ error, later }) => {
-    console.log('later', later)
+const Notification = ({type, text, title }) => {
     const SweetAlert = withSwalInstance(swal);
-    const [show, setShow] = React.useState(error)
-    
+    const [show, setShow] = React.useState(true)
 
     return (
-
         <SweetAlert
             show={show}
-            title='Error'
-            type = 'error'
-            text='Not Found'
+            title={title}
+            type = {type}
+            text={text}
             onConfirm={() => setShow(!show)}
         />
     )
 }
 
-export default Error;
+export default Notification;

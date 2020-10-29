@@ -1,5 +1,4 @@
 import React from 'react'
-import Error from './../../utils/Error'
 import { Nav, Navbar } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 import { GithubContext } from './../../context/context'
@@ -9,12 +8,10 @@ import './NavBar.css';
 
 const NavBar = () => {
 
-    const { avatar, loading, login, error } = React.useContext(GithubContext)
+    const { avatar, loading, login } = React.useContext(GithubContext)
    
     return (<>
-        { error && <Error error = {error} />}
         <Navbar collapseOnSelect expand="lg">
-
             <Navbar.Brand href="#home">Github-Portfolio</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">

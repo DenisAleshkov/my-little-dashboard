@@ -7,7 +7,6 @@ const BreadcrumbComponent = () => {
 		<Breadcrumb>
 			<Breadcrumb.Item className="outer">Home</Breadcrumb.Item>
 			<Breadcrumb.Item className="total">Dashboard</Breadcrumb.Item>
-			
 		</Breadcrumb>
 	)
 }

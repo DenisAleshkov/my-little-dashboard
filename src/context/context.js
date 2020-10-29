@@ -106,6 +106,7 @@ const GithubProvider = ({ children }) => {
 
     React.useEffect(()=>{
         searchGithubUser('DenisAleshkov')
+        setError(null)
     }, [])
 
     return (
