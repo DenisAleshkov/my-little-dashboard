@@ -1,5 +1,4 @@
 import React from 'react'
-import Notification from './../../utils/Notification'
 import SearchUser from './SearchUser'
 import FollowersLink from './FollowersLink'
 import FollowingLink from './FollowingLink'
@@ -12,14 +11,13 @@ import './Dashboard.css'
 
 const Dashboard = () => {
 
-    const { request, following, followers, loading } = React.useContext(GithubContext);
+    const { request, following, followers, loading, error } = React.useContext(GithubContext);
     if(loading) {
         return <Loading />
     }
     console.log('Render Dashboard')
     return(
         <>
-        
        <div className="dashboard main">
            <div className="search-box">
                 <BreadcrumbComponent />

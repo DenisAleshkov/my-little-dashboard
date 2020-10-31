@@ -14,6 +14,7 @@ const SearchUser = () => {
     const getUserData = () => {
         searchGithubUser(user)
     }
+ 
     return(
         <>
         {   error 
